@@ -757,3 +757,69 @@ body.theme-dark {
     linear-gradient(to bottom, rgba(255,255,255,0.35) 0%, rgba(255,255,255,0.1) 45%, transparent 50%),
     linear-gradient(to bottom, #2fb4ea 0%, #0b6fb0 55%, #063e6e 100%) !important;
 }
+
+/* ==========================================================
+   CAPTION BUTTONS (minimize / maximize / close)
+   Full-size, soft and airy: no hard gloss, just a gentle
+   watery tint, with a red close button.
+   ========================================================== */
+
+.titlebar-button-container.mod-right {
+  background: transparent !important;
+}
+
+.titlebar-button-container.mod-right .titlebar-button {
+  background: transparent !important;
+  color: var(--aero-sea) !important;
+  opacity: 1 !important;
+  transition: background .2s ease, color .2s ease;
+}
+.titlebar-button-container.mod-right .titlebar-button:hover {
+  background: linear-gradient(to bottom, rgba(255,255,255,0.55), rgba(120,210,250,0.45)) !important;
+  color: #063a5c !important;
+}
+
+/* Close: a soft red rounded pill inset inside the full-size hit area */
+.titlebar-button-container.mod-right .titlebar-button.mod-close {
+  position: relative;
+  background: transparent !important;
+  color: #fff !important;
+}
+.titlebar-button-container.mod-right .titlebar-button.mod-close::before {
+  content: "";
+  position: absolute;
+  inset: 4px 6px 8px 4px;
+  border-radius: 10px;
+  border: 1px solid rgba(160, 30, 20, 0.55);
+  background: linear-gradient(to bottom, rgba(255,140,125,0.9), rgba(228,72,58,0.92));
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.45), 0 2px 6px rgba(180,40,30,0.25);
+  transition: background .2s ease, box-shadow .2s ease;
+  z-index: 0;
+}
+.titlebar-button-container.mod-right .titlebar-button.mod-close svg {
+  position: relative;
+  z-index: 1;
+  margin-top: -4px;
+  margin-left: -2px;
+}
+.titlebar-button-container.mod-right .titlebar-button.mod-close:hover::before {
+  background: linear-gradient(to bottom, #ff8a78, #d9301f);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.5), 0 0 12px rgba(255,80,60,0.5);
+}
+
+.titlebar-button-container.mod-right .titlebar-button:active {
+  filter: brightness(0.9);
+}
+
+/* Night aqua */
+.theme-dark .titlebar-button-container.mod-right .titlebar-button:not(.mod-close) {
+  color: #bfeaff !important;
+}
+.theme-dark .titlebar-button-container.mod-right .titlebar-button:not(.mod-close):hover {
+  background: linear-gradient(to bottom, rgba(80,190,255,0.3), rgba(20,110,180,0.45)) !important;
+  color: #fff !important;
+}
+.theme-dark .titlebar-button-container.mod-right .titlebar-button.mod-close::before {
+  background: linear-gradient(to bottom, rgba(230,95,80,0.85), rgba(180,40,30,0.9));
+  border-color: rgba(255, 150, 130, 0.5);
+}
