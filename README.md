@@ -25,11 +25,22 @@ A CSS snippet that turns Obsidian into a glossy, bubbly **Frutiger Aero** world,
 
 ## Install
 
-1. Copy `frutiger-aero.css` into your vault's `.obsidian/snippets/` folder.
-2. In Obsidian, open **Settings → Appearance → CSS snippets**, click refresh, and enable **frutiger-aero**.
-3. *(Optional)* Set **Settings → Appearance → Base color scheme** to **Adapt to system** to switch between light and dark automatically.
+### As a theme (recommended)
 
-Works best with the default Obsidian theme; community themes may override some colors.
+**From Obsidian:** Settings → Appearance → Themes → **Manage** → search for **Frutiger Aero** → **Install and use**.
+
+**Manually:**
+1. Create the folder `.obsidian/themes/Frutiger Aero/` in your vault.
+2. Put `theme.css` and `manifest.json` from this repo inside it.
+3. Choose **Frutiger Aero** under Settings → Appearance → Themes.
+
+### As a CSS snippet
+
+Prefer to keep your current theme? Copy `frutiger-aero.css` into `.obsidian/snippets/`, then enable **frutiger-aero** under Settings → Appearance → CSS snippets. It works best on top of the default theme, since other themes may override some colors.
+
+### Light and dark
+
+Set Settings → Appearance → **Base color scheme** to **Adapt to system** to switch between the daytime sky and night aqua automatically.
 
 ### Fonts
 
