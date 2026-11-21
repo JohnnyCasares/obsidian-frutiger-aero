@@ -1,0 +1,674 @@
+/* ==========================================================
+   Frutiger Aero for Obsidian
+   Sky gradients, bokeh bubbles, glossy glass, aqua buttons.
+   Toggle: Settings → Appearance → CSS snippets → frutiger-aero
+   ========================================================== */
+
+/* ---------- Palette ---------- */
+body.theme-light,
+body.theme-dark {
+  --aero-sky-1: #e9f8ff;
+  --aero-sky-2: #9fdcff;
+  --aero-sky-3: #3aa7e8;
+  --aero-sea:   #0b6fb8;
+  --aero-grass: #7fd13b;
+  --aero-aqua:  #19b5e6;
+  --aero-glass: rgba(255, 255, 255, 0.55);
+  --aero-glass-strong: rgba(255, 255, 255, 0.78);
+  --aero-glass-border: rgba(255, 255, 255, 0.85);
+  --aero-shadow: 0 8px 24px rgba(10, 80, 140, 0.25);
+  --aero-gloss: linear-gradient(to bottom,
+                  rgba(255,255,255,0.95) 0%,
+                  rgba(255,255,255,0.55) 49%,
+                  rgba(255,255,255,0.15) 50%,
+                  rgba(255,255,255,0.35) 100%);
+
+  --font-interface-theme: "Frutiger", "Segoe UI", "Myriad Pro", "Nunito", "Ubuntu", sans-serif;
+  --font-text-theme: "Frutiger", "Segoe UI", "Myriad Pro", "Nunito", "Ubuntu", sans-serif;
+  --radius-s: 8px;
+  --radius-m: 12px;
+  --radius-l: 18px;
+  --radius-xl: 22px;
+}
+
+body.theme-light {
+  --background-primary: rgba(255, 255, 255, 0.62);
+  --background-primary-alt: rgba(240, 250, 255, 0.55);
+  --background-secondary: rgba(225, 245, 255, 0.45);
+  --background-secondary-alt: rgba(210, 238, 255, 0.55);
+  --background-modifier-border: rgba(80, 160, 210, 0.35);
+  --background-modifier-hover: rgba(25, 181, 230, 0.14);
+  --background-modifier-active-hover: rgba(25, 181, 230, 0.22);
+  --text-normal: #0d3550;
+  --text-muted: #3f6f8c;
+  --text-faint: #7aa3bb;
+  --text-accent: #0a86c9;
+  --text-accent-hover: #2bb24c;
+  --interactive-accent: #19a6e0;
+  --interactive-accent-hover: #34c06a;
+  --color-accent: #19a6e0;
+  --h1-color: #0a6fb0;
+  --h2-color: #0a86c9;
+  --h3-color: #1d9a5a;
+  --h4-color: #0d3550;
+  --link-color: #0a86c9;
+  --link-color-hover: #2bb24c;
+  --tag-color: #0b6fb8;
+  --tag-background: rgba(127, 209, 59, 0.22);
+  --code-background: rgba(255, 255, 255, 0.55);
+  --text-selection: rgba(25, 181, 230, 0.28);
+}
+
+/* Dark mode = "night aqua": deep ocean instead of bright sky */
+body.theme-dark {
+  --background-primary: rgba(6, 40, 70, 0.58);
+  --background-primary-alt: rgba(8, 50, 85, 0.55);
+  --background-secondary: rgba(4, 30, 55, 0.5);
+  --background-secondary-alt: rgba(8, 55, 95, 0.6);
+  --background-modifier-border: rgba(120, 200, 255, 0.25);
+  --background-modifier-hover: rgba(80, 200, 255, 0.14);
+  --text-normal: #e6f7ff;
+  --text-muted: #9fcbe6;
+  --text-faint: #5f8eaa;
+  --text-accent: #5fd0ff;
+  --interactive-accent: #1fa8e0;
+  --interactive-accent-hover: #4cd07a;
+  --color-accent: #3cc0f0;
+  --h1-color: #7fdcff;
+  --h2-color: #5fd0ff;
+  --h3-color: #9be86a;
+  --link-color: #5fd0ff;
+  --tag-color: #bff0ff;
+  --tag-background: rgba(127, 209, 59, 0.25);
+  --aero-glass: rgba(10, 60, 100, 0.45);
+  --aero-glass-strong: rgba(10, 60, 100, 0.7);
+  --aero-glass-border: rgba(150, 220, 255, 0.35);
+}
+
+/* ---------- The sky / ocean backdrop with bubbles ---------- */
+body.theme-light .app-container {
+  background:
+    radial-gradient(circle at 12% 18%, rgba(255,255,255,0.9) 0 3px, transparent 4px),
+    radial-gradient(circle at 85% 12%, rgba(255,255,255,0.8) 0 2px, transparent 3px),
+    radial-gradient(circle at 70% 80%, rgba(255,255,255,0.35) 0 40px, rgba(255,255,255,0.6) 42px, transparent 46px),
+    radial-gradient(circle at 20% 75%, rgba(255,255,255,0.25) 0 70px, rgba(255,255,255,0.55) 72px, transparent 76px),
+    radial-gradient(circle at 92% 55%, rgba(255,255,255,0.3) 0 25px, rgba(255,255,255,0.6) 27px, transparent 30px),
+    radial-gradient(ellipse at 50% 115%, rgba(127,209,59,0.55) 0%, transparent 45%),
+    radial-gradient(ellipse at 50% -20%, rgba(255,255,255,0.95) 0%, transparent 55%),
+    linear-gradient(170deg, var(--aero-sky-1) 0%, var(--aero-sky-2) 40%, var(--aero-sky-3) 75%, var(--aero-sea) 100%);
+  background-attachment: fixed;
+}
+
+body.theme-dark .app-container {
+  background:
+    radial-gradient(circle at 70% 80%, rgba(150,220,255,0.12) 0 40px, rgba(180,235,255,0.35) 42px, transparent 46px),
+    radial-gradient(circle at 20% 70%, rgba(150,220,255,0.08) 0 70px, rgba(180,235,255,0.3) 72px, transparent 76px),
+    radial-gradient(circle at 88% 30%, rgba(150,220,255,0.1) 0 22px, rgba(180,235,255,0.35) 24px, transparent 27px),
+    radial-gradient(ellipse at 50% -10%, rgba(80,200,255,0.55) 0%, transparent 55%),
+    linear-gradient(180deg, #0a4f86 0%, #06305a 50%, #021a33 100%);
+  background-attachment: fixed;
+}
+
+/* Let the backdrop show through the workspace */
+.workspace,
+.workspace-split,
+.workspace-ribbon,
+.titlebar,
+.app-container .horizontal-main-container {
+  background-color: transparent !important;
+}
+
+/* ---------- Glass panes ---------- */
+.workspace-split.mod-root .workspace-leaf-content,
+.workspace-split.mod-left-split .workspace-leaf-content,
+.workspace-split.mod-right-split .workspace-leaf-content {
+  background: var(--background-primary);
+  backdrop-filter: blur(14px) saturate(160%);
+  -webkit-backdrop-filter: blur(14px) saturate(160%);
+}
+
+.workspace-split.mod-root .workspace-tabs .workspace-leaf {
+  border-radius: var(--radius-l);
+  overflow: hidden;
+  border: 1px solid var(--aero-glass-border);
+  box-shadow: var(--aero-shadow), inset 0 1px 0 rgba(255,255,255,0.9);
+  margin: 6px;
+}
+
+.workspace-split.mod-left-split,
+.workspace-split.mod-right-split {
+  background: var(--background-secondary) !important;
+  backdrop-filter: blur(16px) saturate(150%);
+  -webkit-backdrop-filter: blur(16px) saturate(150%);
+  border-color: var(--aero-glass-border) !important;
+}
+
+.view-content,
+.markdown-preview-view,
+.markdown-source-view,
+.cm-editor,
+.cm-scroller {
+  background: transparent !important;
+}
+
+/* ---------- Glossy tabs ---------- */
+.workspace-tab-header-container {
+  background: transparent !important;
+  border-bottom: none !important;
+}
+
+.workspace-tab-header {
+  border-radius: 12px 12px 0 0 !important;
+}
+
+.workspace-tab-header.is-active,
+.workspace-tab-header:hover {
+  background: var(--aero-gloss), linear-gradient(to bottom, #bfeaff, #5cc6f2) !important;
+  border: 1px solid rgba(255,255,255,0.9);
+  box-shadow: 0 2px 8px rgba(10,100,160,0.25);
+}
+.workspace-tab-header.is-active .workspace-tab-header-inner-title {
+  color: #063a5c;
+  font-weight: 600;
+  text-shadow: 0 1px 0 rgba(255,255,255,0.8);
+}
+.workspace-tab-header::before,
+.workspace-tab-header::after { display: none !important; }
+
+/* ---------- Aqua buttons ---------- */
+button:not(.clickable-icon),
+.mod-cta {
+  border-radius: 999px !important;
+  border: 1px solid rgba(10, 100, 160, 0.45) !important;
+  background:
+    var(--aero-gloss),
+    linear-gradient(to bottom, #8fdcff 0%, #1fa8e0 55%, #0b7fc0 100%) !important;
+  color: #fff !important;
+  text-shadow: 0 1px 1px rgba(0,60,100,0.55);
+  box-shadow: 0 2px 6px rgba(10,100,160,0.35), inset 0 1px 0 rgba(255,255,255,0.9) !important;
+  transition: filter .15s ease, transform .1s ease;
+}
+button:not(.clickable-icon):hover,
+.mod-cta:hover {
+  background:
+    var(--aero-gloss),
+    linear-gradient(to bottom, #c4f29a 0%, #6fcf3a 55%, #3a9e1e 100%) !important;
+  border-color: rgba(50, 130, 20, 0.5) !important;
+}
+button:not(.clickable-icon):active { transform: translateY(1px); filter: brightness(0.95); }
+
+/* ---------- Ribbon & icons ---------- */
+.workspace-ribbon.mod-left {
+  background: linear-gradient(to right, rgba(255,255,255,0.55), rgba(255,255,255,0.2)) !important;
+  border-right: 1px solid var(--aero-glass-border) !important;
+}
+.side-dock-ribbon-action,
+.clickable-icon {
+  border-radius: 10px;
+}
+.side-dock-ribbon-action:hover,
+.clickable-icon:hover {
+  background: radial-gradient(circle at 50% 30%, rgba(255,255,255,0.95), rgba(140,220,255,0.55) 70%) !important;
+  box-shadow: 0 0 10px rgba(25,181,230,0.6);
+  color: var(--aero-sea) !important;
+}
+
+/* ---------- File explorer ---------- */
+.nav-file-title,
+.nav-folder-title,
+.tree-item-self {
+  border-radius: 8px;
+}
+.nav-file-title.is-active,
+.tree-item-self.is-active {
+  background: var(--aero-gloss), linear-gradient(to bottom, #a9e4ff, #4ab9ec) !important;
+  color: #053656 !important;
+  box-shadow: 0 1px 4px rgba(10,100,160,0.3);
+}
+
+/* ---------- Headings: glossy aqua text ---------- */
+.markdown-rendered h1,
+.HyperMD-header-1 {
+  background: linear-gradient(to bottom, #3fc3ff 0%, #0a6fb0 60%, #08507f 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 1px 0 rgba(255,255,255,0.9));
+}
+.markdown-rendered h2 { border-bottom: 2px solid; border-image: linear-gradient(to right, var(--aero-aqua), var(--aero-grass), transparent) 1; padding-bottom: 2px; }
+
+/* ---------- Callouts, code, tags, quotes as bubbles of glass ---------- */
+.callout {
+  border-radius: var(--radius-l);
+  backdrop-filter: blur(8px);
+  border: 1px solid var(--aero-glass-border);
+  box-shadow: var(--aero-shadow), inset 0 1px 0 rgba(255,255,255,0.8);
+}
+.markdown-rendered pre,
+.markdown-rendered code {
+  border-radius: var(--radius-m);
+  border: 1px solid var(--aero-glass-border);
+}
+.markdown-rendered blockquote {
+  border-left: 4px solid var(--aero-aqua);
+  background: var(--aero-glass);
+  border-radius: 0 var(--radius-m) var(--radius-m) 0;
+  padding: 6px 14px;
+}
+a.tag {
+  border-radius: 999px;
+  border: 1px solid rgba(127,209,59,0.6);
+  background: var(--aero-gloss), linear-gradient(to bottom, #e3f9cf, #a7e374) !important;
+  color: #1f5a10 !important;
+}
+.markdown-rendered table {
+  border-radius: var(--radius-m);
+  overflow: hidden;
+  background: var(--aero-glass);
+}
+.markdown-rendered th {
+  background: var(--aero-gloss), linear-gradient(to bottom, #bfeaff, #5cc6f2);
+  color: #063a5c;
+}
+input[type=checkbox]:checked {
+  background: radial-gradient(circle at 40% 30%, #c4f29a, #3a9e1e) !important;
+  border-color: #3a9e1e !important;
+}
+
+/* ---------- Modals, menus, command palette ---------- */
+.modal,
+.menu,
+.prompt,
+.suggestion-container,
+.popover {
+  background: var(--aero-glass-strong) !important;
+  backdrop-filter: blur(20px) saturate(170%);
+  -webkit-backdrop-filter: blur(20px) saturate(170%);
+  border: 1px solid var(--aero-glass-border) !important;
+  border-radius: var(--radius-xl) !important;
+  box-shadow: 0 16px 40px rgba(5,60,110,0.35), inset 0 1px 0 rgba(255,255,255,0.95) !important;
+}
+.suggestion-item.is-selected,
+.menu-item.selected:not(.is-disabled):not(.is-label) {
+  background: var(--aero-gloss), linear-gradient(to bottom, #a9e4ff, #3fb2e8) !important;
+  color: #053656 !important;
+  border-radius: 10px;
+}
+input[type=text],
+input[type=search],
+.search-input-container input {
+  border-radius: 999px !important;
+  background: rgba(255,255,255,0.8) !important;
+  border: 1px solid rgba(80,160,210,0.5) !important;
+  box-shadow: inset 0 2px 4px rgba(10,80,140,0.15);
+}
+.theme-dark input[type=text],
+.theme-dark input[type=search] { background: rgba(0,30,60,0.6) !important; }
+
+/* ---------- Status bar: glossy pill ---------- */
+.status-bar {
+  background: var(--aero-gloss), linear-gradient(to bottom, #bfeaff, #4ab9ec) !important;
+  border: 1px solid rgba(255,255,255,0.9) !important;
+  border-radius: 14px 0 0 0;
+  color: #053656 !important;
+  box-shadow: 0 -2px 10px rgba(10,100,160,0.25);
+}
+
+/* ---------- Scrollbars ---------- */
+::-webkit-scrollbar-thumb {
+  background: var(--aero-gloss), linear-gradient(to right, #8fdcff, #1fa8e0) !important;
+  border-radius: 999px !important;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
+
+/* ---------- Selection ---------- */
+::selection { background: rgba(25,181,230,0.3); }
+
+/* ==========================================================
+   BLOBJECT LAYER
+   Organic, squishy, translucent candy-plastic shapes
+   (think iMac G3, jelly buttons, lava-lamp blobs).
+   ========================================================== */
+
+body {
+  --blob-bondi:  rgba(0, 170, 200, 0.55);
+  --blob-lime:   rgba(140, 220, 60, 0.55);
+  --blob-grape:  rgba(150, 110, 230, 0.45);
+  --blob-tangerine: rgba(255, 160, 60, 0.45);
+  --blob-strawberry: rgba(255, 110, 160, 0.4);
+  --blob-radius-a: 62% 38% 46% 54% / 55% 45% 55% 45%;
+  --blob-radius-b: 40% 60% 60% 40% / 60% 30% 70% 40%;
+  --blob-radius-c: 30% 70% 70% 30% / 30% 30% 70% 70%;
+}
+
+@keyframes aero-blob-morph {
+  0%   { border-radius: 62% 38% 46% 54% / 55% 45% 55% 45%; transform: translate(0, 0) rotate(0deg) scale(1); }
+  33%  { border-radius: 40% 60% 60% 40% / 60% 30% 70% 40%; transform: translate(30px, -40px) rotate(40deg) scale(1.08); }
+  66%  { border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; transform: translate(-25px, 20px) rotate(-30deg) scale(0.94); }
+  100% { border-radius: 62% 38% 46% 54% / 55% 45% 55% 45%; transform: translate(0, 0) rotate(0deg) scale(1); }
+}
+@keyframes aero-squish {
+  0%   { transform: scale(1, 1); }
+  30%  { transform: scale(1.12, 0.88); }
+  50%  { transform: scale(0.92, 1.08); }
+  70%  { transform: scale(1.04, 0.96); }
+  100% { transform: scale(1, 1); }
+}
+@keyframes aero-wobble-radius {
+  0%, 100% { border-radius: var(--blob-radius-a); }
+  50%      { border-radius: var(--blob-radius-b); }
+}
+
+/* ---------- Floating lava-lamp blobs behind everything ---------- */
+.app-container::before,
+.app-container::after {
+  content: "";
+  position: fixed;
+  pointer-events: none;
+  z-index: 0;
+  filter: blur(2px);
+  animation: aero-blob-morph 22s ease-in-out infinite;
+}
+.app-container::before {
+  width: 420px; height: 380px;
+  top: -80px; right: -60px;
+  background:
+    radial-gradient(circle at 30% 25%, rgba(255,255,255,0.85) 0 12%, transparent 30%),
+    radial-gradient(circle at 60% 65%, var(--blob-bondi), rgba(0,120,190,0.25) 70%);
+  box-shadow: inset -20px -30px 60px rgba(0,80,140,0.25), inset 15px 20px 40px rgba(255,255,255,0.5);
+}
+.app-container::after {
+  width: 340px; height: 320px;
+  bottom: -70px; left: -50px;
+  background:
+    radial-gradient(circle at 35% 30%, rgba(255,255,255,0.85) 0 12%, transparent 30%),
+    radial-gradient(circle at 60% 60%, var(--blob-lime), rgba(60,160,40,0.25) 70%);
+  box-shadow: inset -20px -30px 60px rgba(40,110,20,0.25), inset 15px 20px 40px rgba(255,255,255,0.5);
+  animation-duration: 28s;
+  animation-direction: reverse;
+}
+.app-container > .horizontal-main-container { position: relative; z-index: 1; }
+.app-container > .status-bar { z-index: 2; }
+
+/* ---------- Main editor pane: soft, pebble-like corners ---------- */
+.workspace-split.mod-root .workspace-tabs .workspace-leaf {
+  border-radius: 28px 34px 30px 36px / 32px 28px 36px 30px;
+}
+
+/* ---------- Jelly-candy buttons ---------- */
+button:not(.clickable-icon),
+.mod-cta {
+  box-shadow:
+    0 4px 10px rgba(10,100,160,0.35),
+    inset 0 1px 0 rgba(255,255,255,0.95),
+    inset 0 -6px 10px rgba(0,60,120,0.25) !important;
+}
+button:not(.clickable-icon):hover,
+.mod-cta:hover {
+  animation: aero-squish .45s ease-out;
+}
+
+/* ---------- Ribbon icons become squishy jelly beads ---------- */
+.side-dock-ribbon-action:hover,
+.workspace-ribbon .clickable-icon:hover {
+  border-radius: var(--blob-radius-a) !important;
+  animation: aero-squish .45s ease-out, aero-wobble-radius 3s ease-in-out infinite;
+  background:
+    radial-gradient(circle at 35% 25%, rgba(255,255,255,0.95) 0 18%, transparent 40%),
+    radial-gradient(circle at 50% 60%, rgba(120,215,255,0.9), rgba(20,150,210,0.75)) !important;
+  box-shadow: 0 3px 10px rgba(25,150,220,0.55), inset 0 -4px 6px rgba(0,70,130,0.3);
+  color: #fff !important;
+}
+
+/* ---------- Tabs: rounded gumdrop tops ---------- */
+.workspace-tab-header {
+  border-radius: 22px 22px 6px 6px / 26px 26px 6px 6px !important;
+}
+
+/* ---------- Callouts: each one a different blob, colored like candy plastic ---------- */
+.callout {
+  border-radius: 34px 22px 38px 24px / 26px 36px 24px 34px;
+  background:
+    radial-gradient(ellipse at 20% 0%, rgba(255,255,255,0.75), transparent 55%),
+    rgba(var(--callout-color), 0.18) !important;
+  box-shadow:
+    0 8px 22px rgba(var(--callout-color), 0.3),
+    inset 0 2px 0 rgba(255,255,255,0.85),
+    inset 0 -10px 20px rgba(var(--callout-color), 0.15);
+  transition: border-radius .6s ease;
+}
+.callout:hover { border-radius: 24px 38px 26px 34px / 36px 24px 34px 26px; }
+.callout-icon {
+  padding: 4px;
+  border-radius: var(--blob-radius-a);
+  background: radial-gradient(circle at 35% 30%, rgba(255,255,255,0.95), rgba(var(--callout-color), 0.6));
+}
+
+/* ---------- Blockquotes become a soft speech-bubble blob ---------- */
+.markdown-rendered blockquote {
+  border-left: none;
+  border-radius: 30px 30px 30px 8px / 26px 26px 26px 8px;
+  background:
+    radial-gradient(ellipse at 15% 0%, rgba(255,255,255,0.8), transparent 60%),
+    linear-gradient(135deg, rgba(150,225,255,0.35), rgba(170,235,120,0.3));
+  box-shadow: 0 6px 16px rgba(10,100,160,0.18), inset 0 1px 0 rgba(255,255,255,0.9);
+}
+
+/* ---------- Headings: a little glossy blob marker before H2 ---------- */
+.markdown-rendered h2::before {
+  content: "";
+  display: inline-block;
+  width: 0.75em; height: 0.7em;
+  margin-right: 0.45em;
+  vertical-align: 0.05em;
+  border-radius: var(--blob-radius-a);
+  background:
+    radial-gradient(circle at 35% 30%, #fff 0 15%, transparent 40%),
+    radial-gradient(circle at 50% 60%, #7fe0ff, #0a86c9);
+  box-shadow: 0 2px 5px rgba(10,100,160,0.4);
+  animation: aero-wobble-radius 6s ease-in-out infinite;
+}
+.markdown-rendered h3::before {
+  content: "";
+  display: inline-block;
+  width: 0.6em; height: 0.55em;
+  margin-right: 0.4em;
+  border-radius: var(--blob-radius-b);
+  background:
+    radial-gradient(circle at 35% 30%, #fff 0 15%, transparent 40%),
+    radial-gradient(circle at 50% 60%, #c4f29a, #3a9e1e);
+  box-shadow: 0 2px 5px rgba(40,120,20,0.4);
+}
+
+/* ---------- Bullets as tiny jelly beads ---------- */
+.markdown-rendered ul > li::marker { color: transparent; }
+.markdown-rendered ul > li:not(.task-list-item) { list-style: none; position: relative; }
+.markdown-rendered ul > li:not(.task-list-item)::before {
+  content: "";
+  position: absolute;
+  left: -1.1em; top: 0.5em;
+  width: 0.55em; height: 0.5em;
+  border-radius: var(--blob-radius-c);
+  background:
+    radial-gradient(circle at 35% 30%, #fff 0 18%, transparent 45%),
+    radial-gradient(circle, #5fd0ff, #0a86c9);
+}
+.markdown-rendered ul ul > li:not(.task-list-item)::before {
+  background:
+    radial-gradient(circle at 35% 30%, #fff 0 18%, transparent 45%),
+    radial-gradient(circle, #b8ef8a, #3a9e1e);
+}
+
+/* ---------- Checkboxes: glossy jelly beans ---------- */
+input[type=checkbox] {
+  border-radius: 45% 55% 50% 50% / 55% 50% 50% 45% !important;
+  box-shadow: inset 0 2px 3px rgba(255,255,255,0.8), 0 1px 3px rgba(10,80,140,0.3);
+}
+input[type=checkbox]:checked { animation: aero-squish .4s ease-out; }
+
+/* ---------- Tags: candy-colored bean pills ---------- */
+a.tag {
+  border-radius: 14px 18px 14px 18px / 18px 14px 18px 14px;
+  box-shadow: inset 0 -3px 5px rgba(40,110,20,0.25), 0 1px 3px rgba(40,110,20,0.3);
+}
+a.tag:hover { animation: aero-squish .4s ease-out; }
+
+/* ---------- Modals & command palette: big friendly pebble ---------- */
+.modal,
+.prompt {
+  border-radius: 36px 30px 40px 32px / 32px 38px 30px 36px !important;
+}
+
+/* ---------- Status bar: one soft blob ---------- */
+.status-bar {
+  border-radius: 26px 0 0 0 / 22px 0 0 0;
+}
+
+/* Be kind to people who prefer less motion */
+@media (prefers-reduced-motion: reduce) {
+  .app-container::before,
+  .app-container::after,
+  .markdown-rendered h2::before,
+  .side-dock-ribbon-action:hover,
+  button:hover, a.tag:hover, input[type=checkbox]:checked {
+    animation: none !important;
+  }
+}
+
+/* ==========================================================
+   NIGHT AQUA (dark mode overrides)
+   Deep-ocean glass, glowing bioluminescent accents.
+   Obsidian switches automatically when Base color scheme = "Adapt to system".
+   ========================================================== */
+
+body.theme-dark {
+  --aero-gloss: linear-gradient(to bottom,
+                  rgba(255,255,255,0.35) 0%,
+                  rgba(255,255,255,0.12) 49%,
+                  rgba(255,255,255,0.0) 50%,
+                  rgba(255,255,255,0.08) 100%);
+  --aero-shadow: 0 8px 28px rgba(0, 10, 30, 0.6);
+  --blob-bondi: rgba(0, 190, 230, 0.35);
+  --blob-lime:  rgba(120, 220, 80, 0.3);
+}
+
+/* Panes: no bright white top highlight */
+.theme-dark .workspace-split.mod-root .workspace-tabs .workspace-leaf {
+  box-shadow: var(--aero-shadow), inset 0 1px 0 rgba(150,220,255,0.35);
+}
+
+/* Tabs */
+.theme-dark .workspace-tab-header.is-active,
+.theme-dark .workspace-tab-header:hover {
+  background: var(--aero-gloss), linear-gradient(to bottom, #1a6fa8, #0a3f6a) !important;
+  border-color: rgba(120,210,255,0.45);
+  box-shadow: 0 0 12px rgba(60,190,255,0.35);
+}
+.theme-dark .workspace-tab-header.is-active .workspace-tab-header-inner-title {
+  color: #e6f7ff;
+  text-shadow: 0 0 6px rgba(90,210,255,0.7);
+}
+
+/* Buttons: deep aqua jelly that glows */
+.theme-dark button:not(.clickable-icon),
+.theme-dark .mod-cta {
+  background: var(--aero-gloss), linear-gradient(to bottom, #2fb4ea 0%, #0b6fb0 55%, #063e6e 100%) !important;
+  border-color: rgba(120,210,255,0.5) !important;
+  box-shadow: 0 0 12px rgba(40,170,240,0.4), inset 0 1px 0 rgba(255,255,255,0.4), inset 0 -6px 10px rgba(0,20,50,0.4) !important;
+}
+.theme-dark button:not(.clickable-icon):hover,
+.theme-dark .mod-cta:hover {
+  background: var(--aero-gloss), linear-gradient(to bottom, #8be05a 0%, #3a9e1e 55%, #1f6010 100%) !important;
+  box-shadow: 0 0 14px rgba(120,230,80,0.5), inset 0 1px 0 rgba(255,255,255,0.4) !important;
+}
+
+/* Ribbon */
+.theme-dark .workspace-ribbon.mod-left {
+  background: linear-gradient(to right, rgba(10,60,100,0.6), rgba(10,60,100,0.2)) !important;
+}
+.theme-dark .side-dock-ribbon-action:hover,
+.theme-dark .workspace-ribbon .clickable-icon:hover,
+.theme-dark .clickable-icon:hover {
+  background:
+    radial-gradient(circle at 35% 25%, rgba(255,255,255,0.6) 0 15%, transparent 40%),
+    radial-gradient(circle at 50% 60%, rgba(60,190,255,0.8), rgba(10,90,160,0.8)) !important;
+  box-shadow: 0 0 14px rgba(60,200,255,0.7);
+  color: #fff !important;
+}
+
+/* File explorer active item */
+.theme-dark .nav-file-title.is-active,
+.theme-dark .tree-item-self.is-active {
+  background: var(--aero-gloss), linear-gradient(to bottom, #1a7fc0, #0a4a7a) !important;
+  color: #e6f7ff !important;
+  box-shadow: 0 0 10px rgba(60,190,255,0.35);
+}
+
+/* Headings glow instead of gloss */
+.theme-dark .markdown-rendered h1,
+.theme-dark .HyperMD-header-1 {
+  background: linear-gradient(to bottom, #c9f2ff 0%, #5fd0ff 55%, #1f9ad8 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  filter: drop-shadow(0 0 8px rgba(60,190,255,0.5));
+}
+
+/* Tables, quotes, tags */
+.theme-dark .markdown-rendered th {
+  background: var(--aero-gloss), linear-gradient(to bottom, #1a6fa8, #0a3f6a);
+  color: #e6f7ff;
+}
+.theme-dark .markdown-rendered blockquote {
+  background:
+    radial-gradient(ellipse at 15% 0%, rgba(150,220,255,0.18), transparent 60%),
+    linear-gradient(135deg, rgba(20,110,170,0.35), rgba(50,130,40,0.25));
+  box-shadow: 0 6px 16px rgba(0,10,30,0.4), inset 0 1px 0 rgba(150,220,255,0.3);
+}
+.theme-dark a.tag {
+  background: var(--aero-gloss), linear-gradient(to bottom, #4a9e2a, #1f6010) !important;
+  color: #e9ffd9 !important;
+  border-color: rgba(150,230,100,0.5);
+}
+
+/* Callouts: dimmer tint, inner glow */
+.theme-dark .callout {
+  background:
+    radial-gradient(ellipse at 20% 0%, rgba(255,255,255,0.12), transparent 55%),
+    rgba(var(--callout-color), 0.15) !important;
+  box-shadow: 0 0 18px rgba(var(--callout-color), 0.25), inset 0 1px 0 rgba(255,255,255,0.2);
+}
+
+/* Menus / palette / modals */
+.theme-dark .modal,
+.theme-dark .menu,
+.theme-dark .prompt,
+.theme-dark .suggestion-container,
+.theme-dark .popover {
+  box-shadow: 0 16px 40px rgba(0,10,30,0.7), 0 0 20px rgba(60,190,255,0.2), inset 0 1px 0 rgba(150,220,255,0.35) !important;
+}
+.theme-dark .suggestion-item.is-selected,
+.theme-dark .menu-item.selected:not(.is-disabled):not(.is-label) {
+  background: var(--aero-gloss), linear-gradient(to bottom, #1a7fc0, #0a4a7a) !important;
+  color: #e6f7ff !important;
+}
+.theme-dark input[type=text],
+.theme-dark input[type=search],
+.theme-dark .search-input-container input {
+  border-color: rgba(120,210,255,0.4) !important;
+  box-shadow: inset 0 2px 4px rgba(0,10,30,0.5);
+}
+
+/* Status bar */
+.theme-dark .status-bar {
+  background: var(--aero-gloss), linear-gradient(to bottom, #1a6fa8, #0a3f6a) !important;
+  border-color: rgba(120,210,255,0.4) !important;
+  color: #e6f7ff !important;
+  box-shadow: 0 0 14px rgba(60,190,255,0.3);
+}
+
+/* Scrollbar */
+.theme-dark ::-webkit-scrollbar-thumb {
+  background: var(--aero-gloss), linear-gradient(to right, #2fb4ea, #0b6fb0) !important;
+  background-clip: padding-box;
+}
