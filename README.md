@@ -2,6 +2,15 @@
 
 A CSS snippet that turns Obsidian into a glossy, bubbly **Frutiger Aero** world, with a little **blobject** squish on top.
 
+![Frutiger Aero, light mode](screenshots/light.png)
+
+<details>
+<summary>Night aqua (dark mode)</summary>
+
+![Frutiger Aero, night aqua dark mode](screenshots/dark.png)
+
+</details>
+
 ## Features
 
 - **Sky & ocean backdrop:** sky-to-sea gradient with glossy bubbles and a grassy glow
