@@ -20,6 +20,7 @@ A CSS snippet that turns Obsidian into a glossy, bubbly **Frutiger Aero** world,
 - **Blobject details:** jelly-bean bullets, checkboxes and tags, blob heading markers, wobbling ribbon icons, candy-tinted callouts, speech-bubble quotes
 - **Solid aqua scrollbars** with XP-style grip ridges
 - **Soft caption buttons** with a rounded red close button
+- **Retro CRT terminal** for the Lean Terminal plugin: grey plastic bezel, curved glass, scanlines and a soft phosphor glow
 - **Light & dark:** bright daytime sky, plus a glowing "night aqua" deep-ocean dark mode
 - Follows your system color scheme
 - Respects `prefers-reduced-motion`

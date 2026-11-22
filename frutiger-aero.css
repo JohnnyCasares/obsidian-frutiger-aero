@@ -133,6 +133,7 @@ body.theme-dark .app-container {
   border: 1px solid var(--aero-glass-border);
   box-shadow: var(--aero-shadow), inset 0 1px 0 rgba(255,255,255,0.9);
   margin: 6px;
+  height: calc(100% - 12px);
 }
 
 .workspace-split.mod-left-split,
@@ -423,7 +424,15 @@ button:not(.clickable-icon):hover,
 
 /* ---------- Tabs: rounded gumdrop tops ---------- */
 .workspace-tab-header {
-  border-radius: 22px 22px 6px 6px / 26px 26px 6px 6px !important;
+  border-radius: 14px 14px 5px 5px / 16px 16px 5px 5px !important;
+}
+.workspace-split.mod-root .workspace-tab-header-inner {
+  padding: 2px 9px 0 10px;
+}
+.mod-left-split .workspace-tab-header-inner,
+.mod-right-split .workspace-tab-header-inner {
+  padding: 0 11px;
+  justify-content: center;
 }
 
 /* ---------- Callouts: each one a different blob, colored like candy plastic ---------- */
@@ -822,4 +831,124 @@ body.theme-dark {
 .theme-dark .titlebar-button-container.mod-right .titlebar-button.mod-close::before {
   background: linear-gradient(to bottom, rgba(230,95,80,0.85), rgba(180,40,30,0.9));
   border-color: rgba(255, 150, 130, 0.5);
+}
+
+/* ==========================================================
+   RETRO CRT TERMINAL (Lean Terminal plugin)
+   An old grey plastic monitor: chunky bezel, curved dark glass,
+   scanlines and a soft phosphor glow.
+   ========================================================== */
+
+.workspace-leaf-content[data-type="terminal-view"] .terminal-view-container {
+  background:
+    linear-gradient(to bottom, #e9edf0 0%, #c9d0d6 45%, #aeb7bf 100%) !important;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.9), inset 0 -2px 4px rgba(60,70,80,0.3);
+}
+.theme-dark .workspace-leaf-content[data-type="terminal-view"] .terminal-view-container {
+  background: linear-gradient(to bottom, #6f7b86 0%, #535e69 45%, #3f4852 100%) !important;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.25), inset 0 -2px 4px rgba(0,0,0,0.4);
+}
+
+/* Tab strip = the monitor's top edge */
+.workspace-leaf-content[data-type="terminal-view"] .terminal-tab-bar {
+  background: transparent !important;
+  border-bottom: none !important;
+}
+.workspace-leaf-content[data-type="terminal-view"] .terminal-tab {
+  font-family: "Lucida Console", "DejaVu Sans Mono", monospace;
+  font-size: 11px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #2c3a44 !important;
+  border-radius: 4px !important;
+  border: 1px solid rgba(70,85,95,0.45) !important;
+  background: linear-gradient(to bottom, #f4f6f8, #d3d9de) !important;
+  box-shadow: inset 0 1px 0 #fff, 0 1px 1px rgba(40,50,60,0.25);
+}
+.theme-dark .workspace-leaf-content[data-type="terminal-view"] .terminal-tab {
+  color: #e2e8ec !important;
+  border-color: rgba(0,0,0,0.45) !important;
+  background: linear-gradient(to bottom, #8a96a1, #626e79) !important;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.3), 0 1px 1px rgba(0,0,0,0.4);
+}
+
+/* The bezel around the screen */
+.workspace-leaf-content[data-type="terminal-view"] .terminal-session {
+  inset: 4px 14px 16px 14px !important;
+}
+
+/* The curved glass screen */
+.workspace-leaf-content[data-type="terminal-view"] .terminal-session {
+  border-radius: 18px / 22px;
+  overflow: hidden;
+  background: radial-gradient(ellipse at 50% 45%, #0d2e2b 0%, #071c1b 60%, #020c0c 100%) !important;
+  border: 2px solid #5d6a73;
+  box-shadow:
+    inset 0 0 40px rgba(0,0,0,0.85),
+    inset 0 0 6px rgba(0,0,0,0.9),
+    0 1px 0 rgba(255,255,255,0.7),
+    0 -1px 0 rgba(40,50,60,0.4);
+}
+.workspace-leaf-content[data-type="terminal-view"] .terminal-session .xterm,
+.workspace-leaf-content[data-type="terminal-view"] .terminal-session .xterm-viewport {
+  background: transparent !important;
+}
+
+/* Scanlines + vignette + a little Aero glass reflection on top */
+.workspace-leaf-content[data-type="terminal-view"] .terminal-session::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 10;
+  border-radius: inherit;
+  background:
+    linear-gradient(160deg, rgba(255,255,255,0.07) 0%, rgba(255,255,255,0.02) 35%, transparent 36%),
+    radial-gradient(ellipse at 50% 50%, transparent 60%, rgba(0,0,0,0.45) 100%),
+    repeating-linear-gradient(to bottom, rgba(0,0,0,0.14) 0px, rgba(0,0,0,0.14) 1px, transparent 1px, transparent 3px);
+}
+
+/* Phosphor glow on the text */
+.workspace-leaf-content[data-type="terminal-view"] .xterm-rows {
+  text-shadow: 0 0 1px, 0 0 6px rgba(80, 255, 220, 0.12);
+}
+.workspace-leaf-content[data-type="terminal-view"] .xterm-rows .xterm-cursor {
+  box-shadow: 0 0 8px rgba(120, 255, 220, 0.7);
+}
+
+/* Claude-style grey highlight rows: tint them to fit the green-teal glass */
+.workspace-leaf-content[data-type="terminal-view"] .xterm-rows .xterm-bg-237,
+.workspace-leaf-content[data-type="terminal-view"] .xterm-rows .xterm-bg-236,
+.workspace-leaf-content[data-type="terminal-view"] .xterm-rows .xterm-bg-238 {
+  background-color: rgba(60, 140, 125, 0.28) !important;
+}
+
+/* Search overlay */
+.workspace-leaf-content[data-type="terminal-view"] .lean-terminal-search-overlay {
+  border-radius: 10px;
+}
+
+/* ==========================================================
+   BUTTON READABILITY
+   Deeper aqua base + softer gloss so white labels stay legible.
+   ========================================================== */
+body {
+  --aero-button-gloss: linear-gradient(to bottom,
+    rgba(255,255,255,0.55) 0%, rgba(255,255,255,0.22) 49%,
+    rgba(255,255,255,0.0) 50%, rgba(255,255,255,0.12) 100%);
+}
+button:not(.clickable-icon),
+.mod-cta {
+  background:
+    var(--aero-button-gloss),
+    linear-gradient(to bottom, #3aa9e6 0%, #0b7cc4 55%, #075c99 100%) !important;
+  font-weight: 600;
+  text-shadow: 0 1px 1px rgba(0, 35, 70, 0.75);
+}
+button:not(.clickable-icon):hover,
+.mod-cta:hover {
+  background:
+    var(--aero-button-gloss),
+    linear-gradient(to bottom, #5cc23a 0%, #2f9418 55%, #1f700e 100%) !important;
+  text-shadow: 0 1px 1px rgba(10, 50, 0, 0.75);
 }
